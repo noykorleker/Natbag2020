@@ -22,24 +22,11 @@ public class Natbag {
 	}
 
 	public void sortFlights() {
-		for (int i = 0; i < flights.length; i++) {
-			for (int j = 0; j < flights.length; j++) {
-				if (flights[i] != null && flights[j] != null && flights[i].dateTime.compareTo(flights[j].dateTime) < 0) {
-					swap(flights, i, j);
-				}
-			}
-		}
+		BubbleSort.bubbleSort(flights, new CompareByDate());
 	}
-
 
 	public flights[] getFlights() {
 		return flights;
-	}
-
-	private void swap(flights[] allFlights, int i, int j) {
-		flights temp = flights[i];
-		flights[i] = flights[j];
-		flights[j] = temp;
 	}
 
 	public flights searchFlight(String flightNum) {
